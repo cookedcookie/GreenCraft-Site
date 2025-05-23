@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="ppck-ver" content="b60e47c0487f2eed3329118e17b69645" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenCraft</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0b0f0c;
+      color: #00ff66;
+    }
+    header, footer {
+      background-color: #071d0c;
+      text-align: center;
+      padding: 1rem;
+    }
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      height: 80vh;
+      border: 3px solid #00ff66;
+      border-radius: 10px;
+    }
+    #cookiePopup {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #071d0c;
+      color: #00ff66;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+    }
+    #cookiePopup button {
+      background-color: #00ff66;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-left: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to GreenCraft</h1>
+    <p>Play Minecraft in your browser</p>
+  </header>
+
+  <section>
+    <h2>Eaglecraft Minecraft Clone</h2>
+    <!-- You can replace the iframe URL below with any other open-source game URL -->
+    <iframe src="https://g.deev.is/eaglercraft/" style="border:0; width:100%; height:600px;" allowfullscreen></iframe>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GreenCraft. All rights reserved.</p>
+  </footer>
+
+  <!-- Cookie Popup -->
+  <div id="cookiePopup">
+    <span>This site uses cookies to enhance your experience.</span>
+    <div>
+      <button onclick="acceptCookies()">Accept</button>
+      <button onclick="declineCookies()">Decline</button>
+    </div>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      document.getElementById('cookiePopup').style.display = 'none';
+    }
+
+    function declineCookies() {
+      alert("You must accept cookies to use this site.");
+      window.location.href = "https://www.google.com"; // Redirect if declined
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem('cookiesAccepted') === 'true') {
+        document.getElementById('cookiePopup').style.display = 'none';
+      }
+    };
+  </script>
+
+</body>
+</html>
